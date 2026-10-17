@@ -1,0 +1,216 @@
+# Feature 000: Populate Agent Workflow Files
+
+Status: Complete
+
+Ticket: none
+
+## Goal
+
+Provide a reusable, step-by-step blueprint that any agent can follow to fully populate the `.agents/context/` files, `.agents/docs/README.md`, and `AGENTS.md` for a new project by interviewing the user with targeted, per-field questions and writing the files once all answers are collected.
+
+## Background / Context
+
+The agent workflow system relies on several context files that agents read at the start of every interaction. When a new project is bootstrapped, these files contain empty placeholders. This blueprint ensures they are populated accurately and completely before any development work begins.
+
+## Depends on (if any)
+
+- The `.agents/` folder structure must already be scaffolded (empty template files in place)
+
+## Out of Scope
+
+- Writing any application code
+- Creating feature plans (those follow the normal Plan phase)
+- Populating `.agents/docs/` with actual reference document files (only the `README.md` index is updated here)
+- Making architectural decisions on behalf of the user without explicit permission
+
+## Affected Files
+
+- `AGENTS.md` — updated only if the user specifies project-level overrides
+- `.agents/context/ai-workflow-rules.md` — workflow mode, development order, restrictions
+- `.agents/context/project-context.md` — project name, description, users, workflows, setup
+- `.agents/context/architecture.md` — stack, structure, request flow, patterns
+- `.agents/context/code-standards.md` — naming, organization, testing, tooling
+- `.agents/context/ui-context.md` — component library, CSS approach, theme, layout patterns
+- `.agents/context/tools.md` — external tools & services, access methods, credentials policy
+- `.agents/context/progress-tracker.md` — current phase, checklist, blockers, next steps
+- `.agents/docs/README.md` — reference document index
+
+## Design Decisions
+
+- **Interview style:** One batch of all questions upfront — a second round is allowed only if user answers introduce new gaps, not as a routine follow-up.
+- **Question depth:** Specific, per-field questions matching each placeholder section in the target file.
+- **Fallback — minor/undecided field:** Leave as placeholder comment; record as an open question in `progress-tracker.md` if non-blocking.
+- **Fallback — critical missing info:** Record as a blocker in `progress-tracker.md`.
+- **Agent autonomy:** If the user explicitly says the agent may decide a minor detail, pick the best option based on reasoning, document the decision inline, and note it in the post-write summary.
+- **Existing content — merge:** Fill empty sections and leave already-populated sections intact by default.
+- **Existing content — conflict:** If an incoming answer conflicts with existing content, pause and ask the user to resolve before writing that file.
+- **Output timing:** Write all files immediately once all answers are processed, then post a summary to chat.
+- **Mandatory question — git exclude:** The `.git/info/exclude` question must always be asked and answered, even if the user skips other questions. It is not deferrable because accidentally committing personal agent workflow files is silent and irreversible without a history rewrite.
+
+---
+
+## Implementation Steps
+
+### Phase A: Read & Assess
+
+- [x] Read all existing context files and `AGENTS.md`
+- [x] Identify which sections are already populated vs. empty placeholder
+- [x] Note any existing content that may conflict with incoming answers
+
+### Phase B: Interview the User
+
+Ask **all questions below in a single batch**. Group them clearly by file so the user can answer in any order. If a question does not apply to the project, the user may skip it.
+
+---
+
+#### `AGENTS.md`
+
+1. Does the standard four-phase workflow (Plan → Refine → Implement → Meta) fit your project, or do you need custom phases or renamed triggers?
+2. Are there any project-level conventions that should be added to `AGENTS.md`? *(e.g., a rule about shared components, a branching strategy, a mandatory review step)*
+
+---
+
+#### `ai-workflow-rules.md`
+
+3. What mode is this project starting in? *(Mockup/Prototype · Development · Maintenance)*
+4. What should be built first? Describe the development order or priority.
+5. Are there any hard restrictions — things agents must **never** do on this project? *(e.g., no backend logic in mockup mode, no paid third-party services)*
+6. Are there any phase-specific workflow overrides? *(e.g., skip Refine for small UI tweaks, always ask before touching shared components)*
+7. Any other behavioral rules for agents on this project?
+
+---
+
+#### `project-context.md`
+
+8. What is the project name?
+9. What does the project do? *(2–3 sentences: domain, main user action, output)*
+10. What problem or pain point does it solve?
+11. Who are the target users? *(technical level, what they care about)*
+12. What are the 3–5 most important user workflows — the flows that must never break?
+13. What are the prerequisites? *(Node version, Python version, required global tools)*
+14. How do you install and run the project locally? *(commands)*
+15. What environment variables are required and what does each do? *(names and purpose only — no real values)*
+16. What are the key files or entry points agents should know about?
+17. What are the hard constraints? *(non-negotiables, e.g., "must support mobile", "WCAG AA accessibility", "no paid APIs")*
+
+---
+
+#### `architecture.md`
+
+18. What is the frontend framework or approach?
+19. What is the backend framework or runtime?
+20. What database type and provider are you using?
+21. What authentication solution are you using?
+22. Where is the project hosted or deployed?
+23. What notable third-party services or integrations are in use?
+24. Describe the top-level project directory structure and each folder's purpose.
+25. How does a typical request flow from a user action to data storage and back?
+26. Are there any key design patterns in use? *(e.g., repository pattern, event-driven, CQRS, MVC)*
+
+---
+
+#### `code-standards.md`
+
+27. What file and folder naming convention is used? *(e.g., kebab-case for files, PascalCase for components)*
+28. What is each major directory responsible for?
+29. What naming conventions apply to components, functions, variables, and types?
+30. What coding patterns should agents always follow? *(e.g., always use async/await, prefer functional components, no class components, immutable state)*
+31. What testing approach is used? *(framework, what gets tested, coverage expectations)*
+32. What linting, formatting, or commit tooling is in use? *(ESLint, Prettier, Husky, lint-staged, etc.)*
+
+---
+
+#### `ui-context.md`
+
+33. What component library or design system is in use, if any? *(e.g., shadcn/ui, Material UI, custom)*
+34. What CSS approach is used? *(Tailwind, CSS modules, styled-components, plain CSS)*
+35. What is the color scheme or theme? *(primary, surface, accent colors, or design token system)*
+36. What layout patterns does the app use? *(sidebar, top nav, grid, full-page sections)*
+37. What are the key behavioral patterns? *(how modals open/close, loading states, error states, empty states)*
+
+---
+
+#### `tools.md`
+
+38. Where does the code live and how should agents interact with it? *(e.g., GitHub via the `gh` CLI, GitLab via `glab`, or an MCP server)*
+39. What CI system is in use, and how should an agent check build status or read job logs? *(include the pipeline/project identifier and whether the access token can trigger builds or is read-only)*
+40. Is there a code-quality or static-analysis service? *(host, project key — note any case sensitivity — and what the quality gate actually measures)*
+41. What issue tracker or knowledge base should agents read? *(e.g., Jira/Confluence via MCP, Linear, GitHub Issues)* — And may the agent **write** to it, or is it read-only unless explicitly asked? Also note the **ticket ID format** *(e.g. `PROJ-123`, `GH #45`)*, since every plan records one on its `Ticket:` line.
+42. Where do credentials live, and how are they read? *(e.g., OS keychain entry names, secrets manager, environment variables — names and purposes only, never values)*
+43. Are there existing shell helpers, aliases, or scripts that wrap these tools? — If yes, list their signatures.
+44. Which MCP servers are expected to be enabled, and are any deliberately disabled? *(state the reason, so agents stop trying to use them)*
+45. What identifiers differ from sibling repos that share these credentials? *(project keys, pipeline slugs, base branches — a frequent source of confusing 404s)*
+
+---
+
+#### `progress-tracker.md`
+
+46. What is the current phase of the project? *(planning, early development, in-progress, maintenance)*
+47. What is the initial feature or task checklist? *(list the features to be built)*
+48. Are there any known blockers right now?
+49. What are the immediate next steps?
+
+---
+
+#### `.agents/docs/README.md`
+
+50. Are there any reference documents to add to the index? *(API specs, design docs, research notes, external references)* — If yes, provide a filename and one-line description for each.
+
+---
+
+#### Local Environment *(Required — always ask)*
+
+51. **This question cannot be skipped.** Would you like to add `AGENTS.md` and `.agents/` to `.git/info/exclude`? This keeps agent workflow files local to your machine — they won't appear in diffs, PRs, or be pushed to remote. Say **no** if you want the team to share these files as a checked-in convention.
+
+### Phase C: Process Answers
+
+- [x] For each answered field: prepare the merged content for that file section
+- [x] For each unanswered/deferred field:
+  - If blocking → add to `progress-tracker.md` blockers, leave field as placeholder
+  - If non-blocking → add to `progress-tracker.md` open questions, leave field as placeholder
+- [x] For any conflict with existing content: stop and ask the user to resolve before writing that file
+- [x] If agent is permitted to decide a minor detail: make the decision, note it inline in the file, and include it in the Phase E summary
+
+### Phase D: Write Files
+
+- [x] Write `.agents/context/ai-workflow-rules.md`
+- [x] Write `.agents/context/project-context.md`
+- [x] Write `.agents/context/architecture.md`
+- [x] Write `.agents/context/code-standards.md`
+- [x] Write `.agents/context/ui-context.md`
+- [x] Write `.agents/context/tools.md` — **never record a secret value, only where it lives**
+- [x] Write `.agents/context/progress-tracker.md`
+- [x] Update `.agents/docs/README.md` index
+- [x] Update `AGENTS.md` only if the user specified overrides in questions 1–2
+- [x] If user opted in to git exclude: append `AGENTS.md` and `.agents/` to `.git/info/exclude` (User opted out: tracked in git)
+
+### Phase E: Summary & User Verification
+
+- [x] Post a chat summary listing:
+  - Files written and their completion status *(full / partial)*
+  - Fields left as placeholder and the reason
+  - Any conflicts resolved or still pending user input
+  - Agent decisions made autonomously *(if any)*
+- [x] Wait for user to review and confirm the summary
+- [x] If user provides feedback or change requests, apply corrections before marking complete
+
+---
+
+## Open Questions (if any)
+
+*(None — all decisions resolved before writing this plan.)*
+
+---
+
+## Blockers (if any)
+
+*(None.)*
+
+---
+
+## Verification
+
+- [x] **Completeness:** All context files have no remaining empty placeholders (unless explicitly deferred and tracked in `progress-tracker.md`).
+- [x] **Accuracy:** `progress-tracker.md` accurately reflects the current project state, open questions, and blockers.
+- [x] **Consistency:** No unresolved conflicts between files remain.
+- [x] **User approval:** Summary posted to user; user has reviewed and confirmed the populated content. If user gives feedback to change, corrections must be applied before this feature is marked complete.
