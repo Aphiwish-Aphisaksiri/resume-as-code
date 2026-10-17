@@ -1,0 +1,98 @@
+/* Print Isolation Stylesheet */
+
+@page {
+  margin: 0;
+}
+
+@media print {
+  /* Hide all screen chrome */
+  .no-print,
+  .toolbar-header,
+  .overflow-indicator-bar {
+    display: none !important;
+  }
+
+  /* Reset layout boundaries for exact physical printing */
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #root,
+  .app-container,
+  .preview-canvas,
+  .canvas-transform-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    background: transparent !important;
+    transform: none !important;
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Paper container mappings to physical page */
+  .resume-paper-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .resume-paper {
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+
+  .resume-paper.size-a4,
+  .resume-paper.size-letter {
+    width: 100% !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+
+  .paper-inner {
+    padding: var(--paper-margin) !important;
+    margin: 0 !important;
+    outline: none !important;
+    background: transparent !important;
+    background-image: none !important;
+    height: auto !important;
+  }
+
+  /* Prevent awkward page breaks */
+  .resume-section,
+  .entry-item,
+  .resume-header {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Keep links clean without browser URL suffixes */
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  a[href]:after {
+    content: none !important;
+  }
+}
