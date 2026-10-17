@@ -10,6 +10,7 @@ CI, code quality, issue tracker, or cross-repo search — consult this file firs
 
 | | value |
 |---|---|
+| Repository | [Aphiwish-Aphisaksiri/resume-as-code](https://github.com/Aphiwish-Aphisaksiri/resume-as-code) |
 | CI pipeline / project | Local build (`npm run build`) |
 | Code-quality project key | TypeScript (`tsc`) + ESLint |
 | Primary branch | `main` |
