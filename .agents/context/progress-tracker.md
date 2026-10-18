@@ -11,7 +11,7 @@
 
 ## Current Phase
 
-Ready for `002-replica-current-resume`
+Completed `002-replica-current-resume`. Ready for Feature 003.
 
 ---
 
@@ -24,6 +24,7 @@ Ready for `002-replica-current-resume`
 | 2026-10-17 | Phased roadmap: Scaffold first, then replica | Feature 001 scaffolds the engine, Feature 002 creates an exact 1-page replica of the baseline `.docx` / `.md`. |
 | 2026-10-17 | Dynamic `@page` injection & offline Inter fonts | Injects `@page { size: <format> portrait; margin: 0; }` dynamically and bundles `@fontsource/inter` to guarantee 100% deterministic, offline vector PDF rendering without FOUT. |
 | 2026-10-17 | Real-time 1-page overflow monitoring | Uses `ResizeObserver` to compare printable content height with physical page limits, alerting immediately on page spillage. |
+| 2026-10-18 | Proportional vertical rhythm & inline markdown bolding | Fine-tunes typographic line heights and list gaps to achieve balanced full-page distribution with 0px overflow on both A4 and US Letter, parsing markdown bold markers into accessible `<strong>` tags. |
 
 ---
 
@@ -31,14 +32,13 @@ Ready for `002-replica-current-resume`
 
 - [x] [`000-populate-workflow-files`](./../feature/000-populate-workflow-files.md) — Agent workflow blueprint
 - [x] [`001-scaffold-vite-print-engine`](./../feature/001-scaffold-vite-print-engine.md) — Scaffold Vite + React + TS with print layout foundation
-- [ ] `002-replica-current-resume` — Pixel-perfect replica of the 1-page baseline resume
+- [x] [`002-replica-current-resume`](./../feature/002-replica-current-resume.md) — Polish layout, vertical rhythm & ATS keyword bolding
 
 ---
 
 ## Next Steps
 
-1. Plan and implement `002-replica-current-resume` (Pixel-perfect replica of baseline resume).
-2. Plan and implement tailored variant routes (e.g. `/omise`, `/nvidia`).
+1. Plan and implement tailored variant routes (e.g. `/omise`, `/nvidia`) and structured data presets.
 
 ---
 

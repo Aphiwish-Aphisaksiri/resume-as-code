@@ -41,10 +41,10 @@ export const sampleResume: ResumeData = {
       summary:
         'Building AI-powered automation for merchant risk assessment, spanning backend microservices, legacy platform integration, and cross-functional delivery with Legal, Product, and Compliance teams.',
       bullets: [
-        'Architected and shipped a Summary Agent microservice (Go) within an AI-driven KYC platform, including a custom PII-filtering layer to reduce sensitive data exposure to the LLM; owned the feature from requirements through production deployment via GitOps and a full CI/CD pipeline.',
-        'Integrated three AI agents (OCR extraction, website verification, summary generation) into a legacy Ruby on Rails platform by building new frontend views, controllers, and API clients — bringing AI-assisted document validation and risk assessment into analysts\' existing workflow, with an estimated ~30 minutes per registration saved.',
-        'Reworked OCR document storage from sparse columns to normalized child tables with a single schema registry, eliminating drift. De-risked the rewrite with golden-file API response tests and a migration replayer, proving it byte-identical on the wire.',
-        'Architected KYC platform\'s agent APIs toward an event-driven design — shipping a fire-and-forget async interim solution with on-demand refresh as a cost-effective, infrastructure-free path to production, unblocking future batch-processing scale.',
+        'Architected and shipped a Summary Agent microservice (**Go**) within an AI-driven KYC platform, including a custom PII-filtering layer to reduce sensitive data exposure to the LLM; owned the feature from requirements through production deployment via GitOps and a full CI/CD pipeline.',
+        'Integrated three AI agents (OCR extraction, website verification, summary generation) into a legacy **Ruby on Rails** platform by building new frontend views, controllers, and API clients — bringing AI-assisted document validation and risk assessment into analysts\' existing workflow, with an estimated ~30 minutes per registration saved.',
+        'Reworked OCR document storage from sparse columns to normalized child tables with a single schema registry, eliminating drift. De-risked the rewrite with **golden-file API response tests** and a migration replayer, proving it byte-identical on the wire.',
+        'Architected KYC platform\'s agent APIs toward an **event-driven design** — shipping a fire-and-forget async interim solution with on-demand refresh as a cost-effective, infrastructure-free path to production, unblocking future batch-processing scale.',
       ],
     },
     {
@@ -55,7 +55,7 @@ export const sampleResume: ResumeData = {
       location: 'Bangkok, Thailand',
       techStack: ['JavaScript', 'MongoDB', 'Postman', 'API Testing', 'QA Automation', 'Jira', 'Confluence'],
       bullets: [
-        'Performed QA and automated API testing (JavaScript, Postman) for new features on the LINE MAN food delivery platform, including payment-gateway flow validation and MongoDB data-integrity checks, within a full CI/CD delivery pipeline coordinated via Jira and Confluence.',
+        'Performed **QA and automated API testing** (JavaScript, Postman) for new features on the LINE MAN food delivery platform, including **payment-gateway flow** validation and MongoDB data-integrity checks, within a full CI/CD delivery pipeline coordinated via **Jira and Confluence**.',
       ],
     },
   ],
@@ -67,10 +67,10 @@ export const sampleResume: ResumeData = {
       period: 'Nov 2025 – Mar 2026',
       techStack: ['Next.js', 'FastAPI', 'Docker', 'Ollama', 'pgvector', 'SSE Streaming', 'Cloudflare Architecture'],
       bullets: [
-        'Built a full-stack project management platform (Next.js, React, TypeScript, Tailwind CSS) with full CRUD for projects, tasks, and notes — using App Router, React Server Components, and Server Actions with NextAuth v4 authentication (bcrypt, JWT) and server-side identity guards on all data access via Prisma 7 ORM over PostgreSQL.',
-        'Architected a Next.js + FastAPI hybrid backend — Next.js owns auth, UI, and data mutations while a separate async FastAPI service owns the AI/embedding pipeline, communicating over Docker\'s internal network with token-by-token SSE streaming proxied through an auth-enforced API route.',
-        'Architected a dual-path inference engine featuring an agentic tool-calling loop (Gemma 4) and a fallback pipeline; implemented tool executor for semantic searches, structured DB queries, and full CRUD operations.',
-        'Built a multiplexed streaming protocol that surfaced Ollama generation metrics and tool-call events in real time, supporting mixed workloads on Gemma 4 with thinking mode and up to 5 tool-calling iterations on RTX 5070, reaching ~185 tokens/s in throughput.',
+        'Built a full-stack project management platform (**Next.js, React, TypeScript, Tailwind CSS**) with full CRUD for projects, tasks, and notes — using App Router, React Server Components, and Server Actions with NextAuth v4 authentication (bcrypt, JWT) and server-side identity guards on all data access via **Prisma 7 ORM** over **PostgreSQL**.',
+        'Architected a Next.js + FastAPI hybrid backend — Next.js owns auth, UI, and data mutations while a separate async FastAPI service owns the **AI/embedding pipeline**, communicating over Docker\'s internal network with token-by-token SSE streaming proxied through an auth-enforced API route.',
+        'Architected a dual-path inference engine featuring an **agentic tool-calling** loop (Gemma 4) and a fallback pipeline; implemented **tool executor** for **semantic searches**, structured DB **queries**, and full **CRUD** operations.',
+        'Built a multiplexed streaming protocol that surfaced **Ollama** generation metrics and tool-call events in real time, supporting mixed workloads on Gemma 4 with thinking mode and up to 5 tool-calling iterations on RTX 5070, reaching ~185 tokens/s in throughput.',
       ],
     },
   ],

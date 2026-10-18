@@ -59,6 +59,7 @@ export const App: React.FC = () => {
 
   // Helper to parse inline markdown **bold** markers for authentic ATS/print emphasis
   const formatTextWithBold = (text: string) => {
+    if (!text) return null;
     const segments = text.split(/(\*\*.*?\*\*)/g);
     return segments.map((seg, i) => {
       if (seg.startsWith('**') && seg.endsWith('**')) {
@@ -101,7 +102,7 @@ export const App: React.FC = () => {
               {/* Professional Summary */}
               {sampleResume.summary && (
                 <Section title="Professional Summary">
-                  <p className="resume-summary-text">{sampleResume.summary}</p>
+                  <p className="resume-summary-text">{formatTextWithBold(sampleResume.summary)}</p>
                 </Section>
               )}
 
@@ -143,7 +144,7 @@ export const App: React.FC = () => {
                         )}
 
                         {exp.summary && (
-                          <p className="entry-summary">{exp.summary}</p>
+                          <p className="entry-summary">{formatTextWithBold(exp.summary)}</p>
                         )}
 
                         <ul className="entry-bullets">
@@ -197,7 +198,7 @@ export const App: React.FC = () => {
                         )}
 
                         {proj.summary && (
-                          <p className="entry-summary">{proj.summary}</p>
+                          <p className="entry-summary">{formatTextWithBold(proj.summary)}</p>
                         )}
 
                         <ul className="entry-bullets">
