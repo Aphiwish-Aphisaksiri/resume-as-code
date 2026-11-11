@@ -17,15 +17,15 @@ Software Engineer specializing in agentic AI systems, from production backend se
 
 **Experiences**  
 **Software Engineer Contractor \- AI & Platform Engineering**  
-*Omise | May 2026 – Current | Golang, Ruby on Rails, GitOps, PII Filtering, Microservices Architecture, CI/CD (SonarQube), REST APIs*
+*Omise | May 2026 – Oct 2026 | Golang, Ruby on Rails, GitOps, PII Filtering, Microservices Architecture, CI/CD (SonarQube), REST APIs*
 
-Building **AI-powered automation for merchant risk assessment**, spanning backend microservices, legacy platform integration, and cross-functional delivery with Legal, Product, and Compliance teams.
+Built **AI-powered automation for merchant risk assessment**, spanning backend microservices, legacy platform integration, and cross-functional delivery with Legal, Product, and Compliance teams.
 
-* Contributing to Omise's **Re-KYC automation initiative**, building AI-assisted tooling to modernize a fully manual merchant document review and risk-assessment process, collaborating cross-functionally with Legal, KYC Operations, and Product through biweekly steering meetings.  
+* Contributed to Omise's **Re-KYC automation initiative**, building AI-assisted tooling to modernize a fully manual merchant document review and risk-assessment process, collaborating cross-functionally with Legal, KYC Operations, and Product through biweekly steering meetings.  
 * Designed and built a **Summary Agent microservice** in **Go** within our backend KYC platform, including a **custom PII-filtering** layer that strips sensitive merchant data before it reaches the LLM — reducing attack surface and supporting compliance requirements.  
 * Owned the **Summary Agent end-to-end**: requirements gathering, service/handler/repository/model architecture, database migrations, and **table-driven test coverage**, through production deployment via GitOps across a full CI/CD pipeline (automated testing, SonarQube, GitHub Copilot review, peer review, GolangCI-Lint).  
 * Integrated three **AI agents** (OCR extraction, website verification, and summary generation) into Omise's legacy **Ruby on Rails** admin platform by building new frontend views, controllers, and API clients — enabling document validation and merchant risk assessment directly within analysts' existing workflow.  
-* Demoed the end-to-end KYC agent integration to the Product Manager, KYC team, and Engineering Director. Gain hands-on experience with **GitOps deployment**, infrastructure-as-code, and cross-repository release coordination.
+* Demoed the end-to-end KYC agent integration to the Product Manager, KYC team, and Engineering Director. Gained hands-on experience with **GitOps deployment**, infrastructure-as-code, and cross-repository release coordination.
 
 **Software Engineer in Test intern**  
 *LINE MAN Wongnai | May 2024 – July 2024 | JavaScript, MongoDB, Postman, API Testing, QA Automation, Jira, Confluence*

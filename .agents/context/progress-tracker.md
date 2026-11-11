@@ -11,7 +11,7 @@
 
 ## Current Phase
 
-Completed `002-replica-current-resume`. Ready for Feature 003.
+Completed `003-update-omise-experience`. Ready for Feature 004.
 
 ---
 
@@ -25,6 +25,7 @@ Completed `002-replica-current-resume`. Ready for Feature 003.
 | 2026-10-17 | Dynamic `@page` injection & offline Inter fonts | Injects `@page { size: <format> portrait; margin: 0; }` dynamically and bundles `@fontsource/inter` to guarantee 100% deterministic, offline vector PDF rendering without FOUT. |
 | 2026-10-17 | Real-time 1-page overflow monitoring | Uses `ResizeObserver` to compare printable content height with physical page limits, alerting immediately on page spillage. |
 | 2026-10-18 | Proportional vertical rhythm & inline markdown bolding | Fine-tunes typographic line heights and list gaps to achieve balanced full-page distribution with 0px overflow on both A4 and US Letter, parsing markdown bold markers into accessible `<strong>` tags. |
+| 2026-11-11 | Concluded Omise internship & tense normalization | Finalized Omise employment tenure to May 2026 – Oct 2026 and normalized descriptive verbs to past tense across resume data, baseline markdown, and master CV catalog while preserving exact 1-page layout boundaries. |
 
 ---
 
@@ -33,12 +34,13 @@ Completed `002-replica-current-resume`. Ready for Feature 003.
 - [x] [`000-populate-workflow-files`](./../feature/000-populate-workflow-files.md) — Agent workflow blueprint
 - [x] [`001-scaffold-vite-print-engine`](./../feature/001-scaffold-vite-print-engine.md) — Scaffold Vite + React + TS with print layout foundation
 - [x] [`002-replica-current-resume`](./../feature/002-replica-current-resume.md) — Polish layout, vertical rhythm & ATS keyword bolding
+- [x] [`003-update-omise-experience`](./../feature/003-update-omise-experience.md) — Conclude Omise tenure (May 2026 – Oct 2026) and normalize past-tense verbs
 
 ---
 
 ## Next Steps
 
-1. Plan and implement tailored variant routes (e.g. `/omise`, `/nvidia`) and structured data presets.
+1. Plan and implement Feature 004: tailored variant routes (e.g. `/omise`, `/nvidia`) and structured data presets.
 
 ---
 

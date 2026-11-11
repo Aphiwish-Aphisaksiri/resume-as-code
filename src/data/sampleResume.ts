@@ -35,11 +35,11 @@ export const sampleResume: ResumeData = {
       id: 'omise',
       role: 'Software Engineer Contractor - AI & Platform Engineering',
       company: 'Omise',
-      period: 'May 2026 – Current',
+      period: 'May 2026 – Oct 2026',
       location: 'Bangkok, Thailand',
       techStack: ['Go', 'Ruby on Rails', 'GitOps', 'PII Filtering', 'Microservices Architecture', 'CI/CD', 'REST APIs', 'Event-Driven Systems'],
       summary:
-        'Building AI-powered automation for merchant risk assessment, spanning backend microservices, legacy platform integration, and cross-functional delivery with Legal, Product, and Compliance teams.',
+        'Built AI-powered automation for merchant risk assessment, spanning backend microservices, legacy platform integration, and cross-functional delivery with Legal, Product, and Compliance teams.',
       bullets: [
         'Architected and shipped a Summary Agent microservice (**Go**) within an AI-driven KYC platform, including a custom PII-filtering layer to reduce sensitive data exposure to the LLM; owned the feature from requirements through production deployment via GitOps and a full CI/CD pipeline.',
         'Integrated three AI agents (OCR extraction, website verification, summary generation) into a legacy **Ruby on Rails** platform by building new frontend views, controllers, and API clients — bringing AI-assisted document validation and risk assessment into analysts\' existing workflow, with an estimated ~30 minutes per registration saved.',
